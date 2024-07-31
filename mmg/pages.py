@@ -64,3 +64,12 @@ def register():
         else:
             flash('Passwords do not match.', 'danger')
     return render_template('pages/register.html')
+
+@bp.route('/orthopaedics')
+def orthopaedics():
+    return render_template('pages/orthopaedics.html')
+
+@bp.route('/get_quote')
+def get_quote():
+    # Implement the logic for getting a quote
+    pass
