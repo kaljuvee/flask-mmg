@@ -24,5 +24,5 @@ flask-mmg/
     python -m venv .venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     pip install -r requirements.txt
-    python app.py
+    python -m flask --app mmg run --port 8000 --debug
 ```

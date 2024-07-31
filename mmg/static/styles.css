@@ -1,0 +1,79 @@
+:root {
+    --site-side-padding: 40px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: var(--site-side-padding);
+    padding-right: var(--site-side-padding);
+}
+
+a,
+a:visited {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 5px;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* =================================================================
+    Header
+   ================================================================= */
+
+header {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+header img {
+    height: 50px;
+    width: auto;
+}
+
+header a, header button {
+    text-decoration: none;
+    padding: 0px;
+}
+
+/* Move middle button to the right */
+#header-button-login {
+    float: right;
+}
+
+/* Remove border and padding from menu button, move button to the right */
+#header-button-menu {
+    border: none;
+    padding: 0;
+    float: right;
+}
+
+#heder-button-logo {
+    float: left;
+}
