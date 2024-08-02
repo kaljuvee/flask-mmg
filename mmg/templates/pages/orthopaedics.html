@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Orthopaedics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .header, .breadcrumb, .violet-heading, .violet-paragraph, .disclaimer {
+            /* Your CSS styles from styles.css */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="row">
+            <div class="col-3">
+                <img src="{{ url_for('static', filename='img/mmg-logo-small.png') }}" width="200" alt="MMG Logo">
+            </div>
+            <div class="col-9">
+                <div class="header">
+                    <div class="nav" style="display: flex; align-items: center;">
+                        <a href="#">Home</a>
+                        <a href="#">Need Help?</a>
+                        <a href="#">Chat</a>
+                        <a href="#">Call us</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span>/</span>
+            <span>Orthopaedics</span>
+        </div>
+        
+        <!-- Main Content Section -->
+        <div class="text-center">
+            <img src="https://cdn.usegalileo.ai/sdxl10/b8c60733-ed79-4d55-8c2e-1706dc4f39e3.png" width="600" alt="Orthopaedics" class="img-fluid">
+            <h1 class="violet-heading">Orthopaedics</h1>
+            <p class="violet-paragraph">Still waiting for your hip, knee or shoulder operation? No need to wait any longer. Our medical partners in the EU can treat you immediately.</p>
+        </div>
+        
+        <!-- Buttons Section -->
+        <div class="row">
+            <div class="col-6 text-center">
+                <a href="{{ url_for('pages.get_quote') }}" class="btn btn-primary">Get a quote</a>
+            </div>
+            <div class="col-6 text-center">
+                <a href="{{ url_for('pages.login') }}" class="btn btn-primary">Retrieve quote</a>
+            </div>
+        </div>
+        
+        <!-- Lower Content Sections -->
+        <h2 class="violet-heading">Find the best treatment for you</h2>
+        <p class="violet-paragraph">Orthopaedic treatments. We all need healthy hip joints, knees and shoulders to get around and enjoy our daily lives. Understand your options and find high quality treatment in a private hospital, in a country of your choice, at a price that you can afford. Need finance? We've got you covered.</p>
+        
+        <div class="row">
+            <div class="col-6">
+                <h2 class="violet-heading">Already a customer?</h2>
+                <p class="violet-paragraph">Log in or create a MyMMG account to make changes, view your treatment documents or start a new search. Fast and easy, no need to call.</p>
+                <a href="{{ url_for('pages.login') }}" class="btn btn-secondary">Visit My MMG</a>
+            </div>
+            <div class="col-6">
+                <h2 class="violet-heading">New to My Medical Gateway?</h2>
+                <p class="violet-paragraph">Start your journey with us, get a quote for your treatment or pick up where you left off. Online or over the phone, we look forward to welcoming you.</p>
+                <a href="{{ url_for('pages.get_quote') }}" class="btn btn-secondary">Get a quote</a>
+                <a href="{{ url_for('pages.login') }}" class="btn btn-secondary">Retrieve quote</a>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p>Our Confidentiality Undertaking & Standard Terms and our Fraud Prevention Policy are available for you to read. We would like to draw your attention to them if this is your first contact with MMG and the MMG website.</p>
+            <p>Mystery shopping from this website is not permitted. For full details, please refer to our Standard Terms above.</p>
+            <p>My Medical Gateway International Limited</p>
+        </div>
+    </div>
+</body>
+</html>
