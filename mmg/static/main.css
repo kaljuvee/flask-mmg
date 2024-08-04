@@ -1,3 +1,4 @@
+/* Navbar override*/
 .nav-link,
 .navbar-brand {
     color: #000;
@@ -17,5 +18,5 @@
     height: auto;
 }
 .navbar .navbar-brand img{
-    width: 160px !important;
+    width: 220px !important;
 }

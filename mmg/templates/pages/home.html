@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 
+{% block title %}Home{% endblock title %}
+
 {% block header %}
-<h2>{% block title %}{% endblock title %}</h2>
+
 {% endblock header %}
 
 {% block content %}
 <div class="container content bg-image position-relative" style="background-image: url('{{ url_for('static', filename='./img/main-background.png') }}');
-    height: 630px; width: 1200px">
-  <div class="position-absolute top-100 start-50 translate-middle"
-    style="background-image: url('{{ url_for('static', filename='./img/Background.png') }}');">
+    height: 60vh; background-size: cover;  background-repeat: no-repeat;">\
+  <div class="container col-xxl-8 px-4 py-5 text-white">
+    <div class="row  align-items-left g-5 py-5">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">My Medical Gateway</h1>
+        <p class="lead fw-bold">sample text sample textsample textsample textsample textsample textsample textsample textsample text
+        sample textsample textsample textsample textsample textsample textsam</p>
+      </div>
+    </div>
+  </div>
+  <div class="position-absolute top-100 start-50 translate-middle p-5" style="background-image: url('{{ url_for('static', filename='./img/Background.png') }}');
+    background-size: 100% 100%;">
     <div class="buttons-container">
-      <a class="btn" href="{{ url_for('pages.orthopaedics') }}">
+      <a class="btn" href="{{ url_for('treatments.orthopaedics') }}">
         <img src="{{ url_for('static', filename='./img/Orthopedics.png') }}" alt="Orthopedics">
       </a>
       <a class="btn" href="{{ url_for('pages.home') }}">

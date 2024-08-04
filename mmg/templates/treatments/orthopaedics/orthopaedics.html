@@ -1,0 +1,31 @@
+{% extends 'treatment_base.html' %}
+
+{% block title %}Orthopaedics{% endblock %}
+{% block get_quote_url %}{{url_for('treatments.orthopaedics_get_quote')}}{% endblock get_quote_url %}
+
+
+{% block style %}
+<style>
+    .bg-image {
+        background-image: url('{{ url_for('static', filename='./img/background-orthopaedics.png') }}');
+        height: 60vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+{% endblock style %}
+
+{% block heading %}
+<h1 class="display-5 fw-bold lh-1 mb-3">Orthopaedics</h1>
+{% endblock heading %}
+
+{% block intro %}
+<p class="lead fw-bold">Still waiting for your hip, knee or shoulder operation? No need to wait any longer.
+    Our medical partners in the EU can treat you immediately.</p>
+{% endblock intro %}
+
+{% block treatment_text %}
+    <p>Orthopaedic treatments. We all need healthy hip joints, knees and shoulders to get around
+    and enjoy our daily lives. Understand your options and find high quality treatment in a private hospital, in a
+    country of your choice, at a price that you can afford. Need finance? We've got you covered.</p>
+{% endblock treatment_text %}
