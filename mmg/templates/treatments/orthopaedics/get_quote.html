@@ -1,0 +1,35 @@
+{% extends 'get_quote_base.html' %}
+
+{% block heading %}
+{% endblock heading %}
+
+{% block content %}
+<!-- Form Section -->
+<div class="card shadow-lg">
+    <div class="card-body">
+        <h2 class="card-title text-secondary">Get a quote for your orthopaedic treatment</h2>
+        <p class="card-text">My Medical Gateway finds treatment for you in a high quality private hospital of your
+            choice in the EU, at a price that you can afford.</p>
+        <form>
+            <div class="mb-3">
+                <label for="treatmentType" class="form-label">What medical treatment do you require?</label>
+                <select class="form-select" id="treatmentType" aria-label="Select treatment type">
+                    <option selected>Please select an option...</option>
+                    <option value="1">Arthroscopy</option>
+                    <option value="2">Foot and ankle surgery</option>
+                    <option value="3">Hip replacement surgery</option>
+                    <option value="4">Joint fusion</option>
+                    <option value="5">Knee replacement surgery</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Find treatment</button>
+        </form>
+        <div class="mt-3">
+            <p>Our <a href="#" class="text-primary">Confidentiality Undertaking & Standard Terms</a> and our <a href="#"
+                    class="text-primary">Fraud Prevention Policy</a> are available for you to read. We
+                would like to draw your attention to them if this is your first contact with MMG and the MMG
+                website.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
