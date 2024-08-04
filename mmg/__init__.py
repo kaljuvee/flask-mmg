@@ -1,6 +1,5 @@
 from flask import Flask
-from admin import admin_bp
-from mmg import pages, user, treatments
+from mmg import pages, user, treatments, admin
 
 def create_app():
     app = Flask(__name__)
@@ -9,7 +8,7 @@ def create_app():
     app.register_blueprint(pages.bp)
     app.register_blueprint(user.bp)
     app.register_blueprint(treatments.bp)
-    app.register_blueprint(admin_bp)
+    app.register_blueprint(admin.admin_bp)
 
     return app
 
