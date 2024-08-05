@@ -17,7 +17,7 @@
         {% endblock intro %}
         <div class="d-grid gap-2 d-md-flex button-group justify-content-md-start">
           <a href="{{ quote_url() }}" class="btn btn-primary">Get a quote</a>
-          <a href="{{ url_for('user.login') }}" class="btn btn-primary">Retrieve quote</a>
+          <a href="{{ url_for('user.login') }}" class="btn btn-light">Retrieve quote</a>
         </div>
       </div>
     </div>
@@ -33,22 +33,21 @@
     <div class="row">
     </div>
     <div class="card-group justify-content-center">
-      <div class="card bg-primary p-5">
+      <div class="card bg-primary bg-opacity-50 p-5">
         <h3>New to Saga?</h3>
         <p class="violet-paragraph">Log in or create a MyMMG account to make changes, view your treatment documents or
           start a new search. Fast and easy, no need to call.</p>
         <div class="button-group">
-          <a href="{{ quote_url() }}" class="btn btn-primary">Get a quote</a>
-          <a href="{{ url_for('user.login') }}" class="btn btn-primary">Retrieve quote</a>
+          <a href="{{ url_for('user.register') }}" class="btn btn-primary">Visit My MMG</a>
         </div>
       </div>
-      <div class="card bg-secondary p-5">
+      <div class="card bg-light p-5">
         <h3>Already a customer</h3>
         <p class="violet-paragraph">Start your journey with us, get a quote for your treatment or pick up where you left
           off. Online or over the phone, we look forward to welcoming you.</p>
         <div class="button-group">
           <a href="{{ quote_url() }}" class="btn btn-primary">Get a quote</a>
-          <a href="{{ url_for('user.login') }}" class="btn btn-primary">Retrieve quote</a>
+          <a href="{{ url_for('user.login') }}" class="btn bg-white">Retrieve quote</a>
         </div>
       </div>
     </div>

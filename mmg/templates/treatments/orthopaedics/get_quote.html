@@ -5,10 +5,10 @@
 
 {% block content %}
 <!-- Form Section -->
-<div class="card shadow-lg">
-    <div class="card-body">
-        <h2 class="card-title text-secondary">Get a quote for your orthopaedic treatment</h2>
-        <p class="card-text">My Medical Gateway finds treatment for you in a high quality private hospital of your
+<div class="container m-5 mt-0">
+    <div class="row">
+        <h2 class="text-decoration-underline">Get a quote for your orthopaedic treatment</h2>
+        <p class="text">My Medical Gateway finds treatment for you in a high quality private hospital of your
             choice in the EU, at a price that you can afford.</p>
         <form action="{{ url_for('treatments.orthopaedics_get_quote') }}" method="POST">
             <div class="mb-3">

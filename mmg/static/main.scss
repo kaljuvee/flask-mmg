@@ -1,6 +1,107 @@
+// customize variables
+$primary: #6c5ba4;
+$secondary: #43c0ec;
+$primary-gradient: linear-gradient(135deg, rgba(67,192,236,1) 5%, rgba(108,91,164,1) 50%, rgba(247,167,62,1) 95%);
 
-// custom variables
+
+@import "./bootstrap/scss/_functions";
+@import "./bootstrap/scss/_variables";
+
+$custom-theme-colors: (
+    "tertiary": #f7a73e,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+// Custom gradient
+.primary-gradient-bg {
+    background: $primary-gradient;
+}
+
+.primary-gradient-text {
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+
+// Override Bootstrap's button styles
+.btn-primary {
+    background: $primary-gradient;
+    border: none; // Remove border if you want the button to look flat
+    color: white; // Ensure the text color is readable
+}
+
+/* Navbar override*/
+.nav-link,
+.navbar-brand {
+    color: #000;
+    cursor: pointer;
+}
+.nav-link {
+    margin-right: 1em !important;
+}
+.nav-link:hover {
+    color: #000;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.navbar img {
+    width: 120px;
+    height: auto;
+}
+.navbar .navbar-brand img{
+    width: 220px !important;
+}
+
+h2 {
+    color: $primary !important;
+    font-weight: bold !important;
+}
+
+// Stepper
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.step-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--prm-gray);
+    transition: .4s;
+    background-color: $primary-gradient;
+}
+.step-button[aria-expanded="true"] {
+    width: 60px;
+    height: 60px;
+    background-color: var(--prm-color);
+    color: #fff;
+}
+.done {
+    background-color: var(--prm-color);
+    color: #fff;
+}
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+#progress {
+  -webkit-appearance:none;
+    position: absolute;
+    width: 95%;
+    z-index: 5;
+    height: 10px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
 
 // import bootstrap
 @import "./bootstrap/scss/bootstrap";
-
