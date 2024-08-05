@@ -10,10 +10,10 @@
         <h2 class="card-title text-secondary">Get a quote for your orthopaedic treatment</h2>
         <p class="card-text">My Medical Gateway finds treatment for you in a high quality private hospital of your
             choice in the EU, at a price that you can afford.</p>
-        <form>
+        <form action="{{ url_for('treatments.orthopaedics_get_quote') }}" method="POST">
             <div class="mb-3">
                 <label for="treatmentType" class="form-label">What medical treatment do you require?</label>
-                <select class="form-select" id="treatmentType" aria-label="Select treatment type">
+                <select class="form-select" id="treatmentType" name="treatmentType" aria-label="Select treatment type">
                     <option selected>Please select an option...</option>
                     <option value="1">Arthroscopy</option>
                     <option value="2">Foot and ankle surgery</option>
