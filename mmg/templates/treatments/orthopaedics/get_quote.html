@@ -1,35 +1,17 @@
 {% extends 'get_quote_base.html' %}
 
-{% block heading %}
-{% endblock heading %}
+<!-- URL used in get_quotes_base.html to navigate to the correct results page. 
+    The way the quote pages work might need to be reworked to not use templates in this way -->
+{% block quote_results_url %}{{ url_for('treatments.orthopaedics_get_quote') }}{% endblock quote_results_url %}
 
-{% block content %}
-<!-- Form Section -->
-<div class="container m-5 mt-0">
-    <div class="row">
-        <h2 class="text-decoration-underline">Get a quote for your orthopaedic treatment</h2>
-        <p class="text">My Medical Gateway finds treatment for you in a high quality private hospital of your
-            choice in the EU, at a price that you can afford.</p>
-        <form action="{{ url_for('treatments.orthopaedics_get_quote') }}" method="POST">
-            <div class="mb-3">
-                <label for="treatmentType" class="form-label">What medical treatment do you require?</label>
-                <select class="form-select" id="treatmentType" name="treatmentType" aria-label="Select treatment type">
-                    <option selected>Please select an option...</option>
-                    <option value="1">Arthroscopy</option>
-                    <option value="2">Foot and ankle surgery</option>
-                    <option value="3">Hip replacement surgery</option>
-                    <option value="4">Joint fusion</option>
-                    <option value="5">Knee replacement surgery</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Find treatment</button>
-        </form>
-        <div class="mt-3">
-            <p>Our <a href="#" class="text-primary">Confidentiality Undertaking & Standard Terms</a> and our <a href="#"
-                    class="text-primary">Fraud Prevention Policy</a> are available for you to read. We
-                would like to draw your attention to them if this is your first contact with MMG and the MMG
-                website.</p>
-        </div>
-    </div>
-</div>
-{% endblock content %}
+{% block heading %}Get a quote for your orthopaedic treatment{% endblock heading %}
+
+
+{% block options %}
+<option selected>Please select an option...</option>
+<option value="1">Arthroscopy</option>
+<option value="2">Foot and ankle surgery</option>
+<option value="3">Hip replacement surgery</option>
+<option value="4">Joint fusion</option>
+<option value="5">Knee replacement surgery</option>
+{% endblock options %}
