@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Patient Information</h2>
+    <form class="form" hx-post="/submit" hx-target="#response" hx-swap="innerHTML">
+        <div>
+            <label class="form-label" for="first_name">First name:</label>
+            <input class="form-control" type="text" id="first_name" name="first_name"><br><br>
+        </div>
+
+        <div>
+            <label class="form-label" for="last_name">Last name:</label>
+            <input class="form-control" type="text" id="last_name" name="last_name"><br><br>
+        </div>
+        <div>
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="email" id="email" name="email"><br><br>
+
+            <label class="form-label" for="phone">Phone:</label>
+            <input class="form-control" type="text" id="phone" name="phone"><br><br>
+        </div>
+        <label class="form-label" for="problem">Can you tell us what the medical or surgical problem is that you need
+            help with?</label>
+        <input class="form-control" type="text" id="problem" name="problem"><br><br>
+        <div>
+            <label class="form-label" for="validated">Has this been validated by a medical professional?</label>
+            <select class="form-select" id="validated" name="validated">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label class="form-label" for="urgency">How quickly would you like to have treatment?</label>
+            <select class="form-select" id="urgency" name="urgency">
+                <option value="As soon as possible - within 6 weeks">As soon as possible - within 6 weeks</option>
+                <option value="No rush - longer than 6 weeks">No rush - longer than 6 weeks</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label class="form-label" for="call_you">Would you like us to call you:</label>
+            <select class="form-select" id="call_you" name="call_you">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label class="form-label" for="financing">Do you need help with financing options?</label>
+            <select class="form-select" id="financing" name="financing">
+                <option value="Self financed">Self financed</option>
+                <option value="Health insurance">Health insurance</option>
+                <option value="Monetising pension plan">Monetising pension plan</option>
+                <option value="MMG financing partners">MMG financing partners</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label class="form-label" for="preferred_countries">Do you have a preference for the location of your
+                treatment?</label>
+            <select class="form-select" id="preferred_countries" name="preferred_countries" multiple>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Poland">Poland</option>
+                <option value="Romania">Romania</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Spain">Spain</option>
+                <!-- Add other countries as needed -->
+            </select><br><br>
+            <div class="btn-group"> <button class="btn-primary" type="submit">Submit</button>
+                <button class="btn-secondary" type="button" hx-get="/more-info" hx-target="#response"
+                    hx-swap="innerHTML">Provide More Info</button>
+            </div>
+        </div>
+    </form>
+
+    <div id="response"></div>
+
+    <div class="disclaimer">
+        <p>Our Confidentiality Undertaking & Standard Terms and our Fraud Prevention Policy are available for you to
+            read.
+            We would like to draw your attention to them if this is your first contact with MMG and the MMG website.</p>
+        <p>Mystery shopping from this website is not permitted. For full details, please refer to our Standard Terms
+            above.
+        </p>
+        <p>My Medical Gateway International Limited</p>
+    </div>
+</div>
+{% endblock content %}
