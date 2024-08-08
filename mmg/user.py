@@ -1,40 +1,22 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
-import pandas as pd
+from flask import current_app, Blueprint, render_template, request, redirect, flash
 
-bp = Blueprint("user", __name__)
+user_bp = Blueprint("user", __name__)
 
-# Function to save user data to a CSV file (you can use a database instead)
-def save_user_data(user_data):
-    user_data_df = pd.DataFrame(user_data, index=[0])
-    try:
-        existing_data = pd.read_csv('user_data.csv')
-        updated_data = pd.concat([existing_data, user_data_df], ignore_index=True)
-    except FileNotFoundError:
-        updated_data = user_data_df
-    updated_data.to_csv('user_data.csv', index=False)
 
-@bp.route("/account")
+@user_bp.route("/account")
 def account():
     return render_template("user/account.html")
 
-@bp.route("/login", methods=['GET', 'POST'])
+
+@user_bp.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        try:
-            existing_data = pd.read_csv('user_data.csv')
-            user = existing_data[(existing_data['Email'] == email) & (existing_data['Password'] == password)]
-            if not user.empty:
-                flash('Sign In successful!', 'success')
-                return redirect(url_for('user.account'))
-            else:
-                flash('Invalid email or password.', 'danger')
-        except FileNotFoundError:
-            flash('Could not find the user. Please sign up first.', 'danger')
     return render_template("user/login.html")
 
-@bp.route('/register', methods=['GET', 'POST'])
+
+@user_bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         first_name = request.form['first_name']
@@ -42,17 +24,14 @@ def register():
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
-        
+
         if password == confirm_password:
-            user_data = {
-                'First Name': first_name,
-                'Last Name': last_name,
-                'Email': email,
-                'Password': password
-            }
-            save_user_data(user_data)
+            new_user = User(email=email, first_name=first_name,
+                            last_name=last_name, password_hash=password)
+            db.session.add(new_user)
             flash('Sign Up successful!', 'success')
             return redirect(url_for('user.account'))
         else:
             flash('Passwords do not match.', 'danger')
     return render_template('user/register.html')
+

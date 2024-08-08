@@ -21,6 +21,6 @@
     "django-html": "html"
   },
   "emmet.showSuggestionsAsSnippets": true,
-  "emmet.showExpandedAbbreviation": "always"
+  "emmet.showExpandedAbbreviation": "always",
 }
 

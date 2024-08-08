@@ -19,10 +19,11 @@ flask-mmg/
 
 ## Running it
 
+You need to make a .env file in the root folder and define the variables required in the config.py file
 ```
     cd flask_app
     python -m venv .venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     pip install -r requirements.txt
-    python -m flask --app mmg run --port 8000 --debug
+    flask run
 ```
