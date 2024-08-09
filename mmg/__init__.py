@@ -1,14 +1,10 @@
-from flask import Flask, current_app
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from sqlalchemy import text
 from flask_security import (
     Security,
     SQLAlchemyUserDatastore,
     hash_password,
 )
-
-# Create database connection object
-db = SQLAlchemy()
-security = Security()
 
 
 # Create app
@@ -32,20 +28,26 @@ def create_app():
     # Setup Flask-Security
     db.init_app(app)
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-    security.init_app(app, datastore=user_datastore)
+
+    app.security = Security(app, datastore=user_datastore)
 
     app.db = db
     app.hospital_cls = Hospital
+
+    # Create database, roles and base users
+    create_database(app)
+    create_users(app)
 
     return app
 
 
 # Create users and roles
-def create_users():
-    if current_app.testing:
-        return
-    with current_app.app_context():
-        security = current_app.security
+def create_users(myapp):
+    with myapp.app_context():
+        if myapp.testing:
+            return
+
+        security = myapp.security
         security.datastore.db.create_all()
         security.datastore.find_or_create_role(
             name="admin",
@@ -63,11 +65,28 @@ def create_users():
                 roles=["admin"],
             )
 
+        if not security.datastore.find_user(email="user@me.com"):
+            security.datastore.create_user(
+                email="user@me.com",
+                password=hash_password("password"),
+                roles=["user"]
+            )
+
         security.datastore.db.session.commit()
 
 
-if __name__ == "__main__":
-    myapp = create_app()
+def create_database(myapp):
     with myapp.app_context():
-        create_users()
-    myapp.run()
+        # Check if the 'users' table exists in the current database
+        table_exists = myapp.db.session.execute(
+            text(''' SELECT EXISTS
+            (SELECT 1 FROM information_schema.tables
+            WHERE table_name='user')''')
+        ).scalar()
+
+        if table_exists:
+            print("Database already exists. Skipping creation.")
+        else:
+            print(
+                "Database or table 'user' does not exist. Creating database.")
+            myapp.db.create_all()

@@ -15,7 +15,7 @@
         {% endblock intro %}
         <div class="d-grid gap-2 d-md-flex button-group justify-content-md-start">
           <a href="{{ quote_url() }}" class="btn btn-primary">Get a quote</a>
-          <a href="{{ url_for('user.login') }}" class="btn btn-light">Retrieve quote</a>
+          <a href="{{ url_for('security.login') }}" class="btn btn-light">Retrieve quote</a>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <p class="violet-paragraph">Log in or create a My Medical Gateway account to make changes, view your treatment documents or
           start a new search. Fast and easy, no need to call.</p>
         <div class="button-group">
-          <a href="{{ url_for('user.register') }}" class="btn btn-primary">Visit My MMG</a>
+          <a href="{{ url_for('security.register') }}" class="btn btn-primary">Visit My MMG</a>
         </div>
       </div>
       <div class="card bg-light p-5">
@@ -45,7 +45,7 @@
           off. Online or over the phone, we look forward to welcoming you.</p>
         <div class="button-group">
           <a href="{{ quote_url() }}" class="btn btn-primary">Get a quote</a>
-          <a href="{{ url_for('user.login') }}" class="btn bg-white">Retrieve quote</a>
+          <a href="{{ url_for('security.login') }}" class="btn bg-white">Retrieve quote</a>
         </div>
       </div>
     </div>

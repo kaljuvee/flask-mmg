@@ -40,3 +40,5 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 # are still valid. Important for entire application since many DBaaS options
 # automatically close idle connections.
 SQLALCHEMY_ENGINE_OPTIONS = {"pool_pre_ping": True}
+
+SECURITY_SEND_REGISTER_EMAIL = False
